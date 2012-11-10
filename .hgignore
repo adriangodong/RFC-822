@@ -1,0 +1,8 @@
+syntax: glob
+
+*.docstates
+*.suo
+*.user
+Packages/
+[Bb]in/
+[Oo]bj/

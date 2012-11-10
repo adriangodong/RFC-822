@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Web
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rfc822", "Source\Rfc822\Rfc822.csproj", "{19029C10-C847-4C16-96F7-36FC1D7F17E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rfc822Tests", "Source\Rfc822Tests\Rfc822Tests.csproj", "{8946390F-B784-400A-9FEC-C2F2D931F551}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Description = Parse or write a date and time formatted according to the RFC 822 specification.
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{19029C10-C847-4C16-96F7-36FC1D7F17E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19029C10-C847-4C16-96F7-36FC1D7F17E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19029C10-C847-4C16-96F7-36FC1D7F17E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19029C10-C847-4C16-96F7-36FC1D7F17E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8946390F-B784-400A-9FEC-C2F2D931F551}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8946390F-B784-400A-9FEC-C2F2D931F551}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8946390F-B784-400A-9FEC-C2F2D931F551}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8946390F-B784-400A-9FEC-C2F2D931F551}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
