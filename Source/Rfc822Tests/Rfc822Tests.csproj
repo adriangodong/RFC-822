@@ -42,9 +42,23 @@
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="System" />
     <Reference Include="xunit">
       <HintPath>..\..\packages\xunit.1.9.1\lib\net20\xunit.dll</HintPath>
     </Reference>
+    <Reference Include="xunit.extensions">
+      <HintPath>..\..\packages\xunit.extensions.1.9.1\lib\net20\xunit.extensions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Rfc822\Rfc822.csproj">
+      <Project>{19029c10-c847-4c16-96f7-36fc1d7f17e5}</Project>
+      <Name>Rfc822</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DateTimeTests.cs" />
+    <Compile Include="DateTimeTests.Data.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
