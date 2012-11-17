@@ -21,8 +21,8 @@ namespace Rfc822
         {
             StringBuilder specifier = new StringBuilder();
 
-            specifier.Append(syntax.HasFlag(DateTimeSyntax.WithDayName) ? "ddd," : String.Empty);
-            specifier.Append(syntax.HasFlag(DateTimeSyntax.TwoDigitDay) ? " dd" : " d");
+            specifier.Append(syntax.HasFlag(DateTimeSyntax.WithDayName) ? "ddd, " : String.Empty);
+            specifier.Append(syntax.HasFlag(DateTimeSyntax.TwoDigitDay) ? "dd" : "d");
             specifier.Append(" MMM");
             specifier.Append(syntax.HasFlag(DateTimeSyntax.FourDigitYear) ? " yyyy" : " yy");
             specifier.Append(syntax.HasFlag(DateTimeSyntax.WithSeconds) ? " HH:mm:ss" : " HH:mm");

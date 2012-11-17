@@ -6,5 +6,3 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyDescription("Parse or write a date and time formatted according to the RFC 822 specification.")]
 [assembly: AssemblyCopyright("Copyright 2012 Michiel van Oosterhout")]
 [assembly: AssemblyVersion("0.0.0.0")]
-
-[assembly: InternalsVisibleTo("Rfc822Tests")]

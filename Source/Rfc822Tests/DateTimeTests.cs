@@ -16,11 +16,20 @@ namespace Rfc822Tests
         [PropertyData("NumericTimeZones")]
         [PropertyData("NumericTimeZonesWithMinutes")]
         [PropertyData("SyntaxCombinations")]
-        public void Test(string input, DateTimeSyntax syntax, DateTimeOffset d)
+        public void Can_parse_RFC_822_formatted_dates(string input, DateTimeSyntax syntax, DateTimeOffset expected)
         {
-            var result = new Rfc822.DateTime(input, syntax);
+            var d = new Rfc822.DateTime(input, syntax);
 
-            Assert.Equal(d, result.Instant);
+            Assert.Equal(expected, d.Instant);
+        }
+
+        [Theory]
+        [PropertyData("SyntaxCombinations")]
+        public void Can_write_RFC_822_formatted_dates(string expected, DateTimeSyntax syntax, DateTimeOffset d)
+        {
+            var output = new Rfc822.DateTime(d).ToString(syntax);
+
+            Assert.Equal(expected, output);
         }
     }
 }

@@ -39,6 +39,33 @@ namespace Rfc822
             Instant = new DateTimeOffset(dateTime, timeZoneMap.Offset);
         }
 
+        public DateTime(System.DateTimeOffset dateTimeOffset)
+        {
+            Instant = dateTimeOffset;
+        }
+
+        public override string ToString()
+        {
+            return ToString(DateTimeSyntax.None);
+        }
+
+        public string ToString(DateTimeSyntax syntax)
+        {
+            var format = new DateTimeFormat(syntax).FormatSpecifier;
+            string result = Instant.DateTime.ToString(format, CultureInfo.InvariantCulture);
+
+            if (syntax.HasFlag(DateTimeSyntax.NumericTimeZone))
+            {
+                result += Instant.DateTime.ToString(" zzz").Replace(":", String.Empty);
+            }
+            else
+            {
+                result += " UT";
+            }
+
+            return result;
+        }
+
         /// <summary>
         /// A point in time of unspecified DateTimeKind and relative to UTC.
         /// </summary>
