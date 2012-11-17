@@ -63,7 +63,7 @@ namespace Rfc822
         public TimeZone Map(string identifier)
         {
             int hours;
-            table.TryGetValue(identifier, out hours);
+            table.TryGetValue(identifier.ToUpperInvariant(), out hours);
 
             TimeSpan offset = new TimeSpan(hours, 0, 0);
 

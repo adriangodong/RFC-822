@@ -13,6 +13,9 @@ namespace Rfc822Tests
         [PropertyData("MonthNames")]
         [PropertyData("TimeZones")]
         [PropertyData("MilitaryTimeZones")]
+        [PropertyData("NumericTimeZones")]
+        [PropertyData("NumericTimeZonesWithMinutes")]
+        [PropertyData("SyntaxCombinations")]
         public void Test(string input, DateTimeSyntax syntax, DateTimeOffset d)
         {
             var result = new Rfc822.DateTime(input, syntax);
