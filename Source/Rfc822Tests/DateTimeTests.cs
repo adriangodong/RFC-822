@@ -25,6 +25,8 @@ namespace Rfc822Tests
 
         [Theory]
         [PropertyData("SyntaxCombinations")]
+        [PropertyData("NumericTimeZones")]
+        [PropertyData("NumericTimeZonesWithMinutes")]
         public void Can_write_RFC_822_formatted_dates(string expected, DateTimeSyntax syntax, DateTimeOffset d)
         {
             var output = new Rfc822.DateTime(d).ToString(syntax);

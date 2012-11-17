@@ -56,7 +56,9 @@ namespace Rfc822
 
             if (syntax.HasFlag(DateTimeSyntax.NumericTimeZone))
             {
-                result += Instant.DateTime.ToString(" zzz").Replace(":", String.Empty);
+                string timeZone = Instant.Offset.Ticks >= 0 ? "+" : "-";
+                timeZone += Instant.Offset.ToString("hhmm");
+                result += " " + timeZone;
             }
             else
             {
