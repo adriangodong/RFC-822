@@ -19,9 +19,6 @@ namespace Rfc822
         /// syntax.</param>
         /// <param name="syntax">The syntax rules that should be used when 
         /// interpreting the input.</param>
-        /// <param name="timeZoneMapper">An instant of a TimeZoneFormat object 
-        /// that is used to convert the time zone part of input to a time zone 
-        /// offset.</param>
         public DateTime(string input, DateTimeSyntax syntax)
         {
             ITimeZoneMapper timeZoneMapper;
