@@ -4,7 +4,7 @@ using System.Globalization;
 namespace Rfc822
 {
     /// <summary>
-    /// Wraps a <see cref="System.DateTimeOffset" />.
+    /// Parses and formats date time according to RFC 822 syntax.
     /// </summary>
     public class DateTime
     {
