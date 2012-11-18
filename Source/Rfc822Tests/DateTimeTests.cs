@@ -33,5 +33,33 @@ namespace Rfc822Tests
 
             Assert.Equal(expected, output);
         }
+
+        [Fact]
+        public void Default_format()
+        {
+            var d = new DateTimeOffset(2012, 5, 1, 12, 34, 56, new TimeSpan(2, 0, 0));
+            var expected = "1 May 2012 12:34:56 +0200";
+
+            Assert.Equal(expected, new Rfc822.DateTime(d).ToString());
+        }
+
+        [Fact]
+        public void ToString_translates_to_universal_time()
+        {
+            var d = new DateTimeOffset(2012, 5, 1, 12, 34, 56, new TimeSpan(2, 0, 0));
+            var output = new Rfc822.DateTime(d).ToString(DateTimeSyntax.None);
+
+            Assert.Equal("1 May 12 10:34 UT", output);
+        }
+
+        [Theory]
+        [PropertyData("RandomDates")]
+        public void Can_round_trip(DateTimeOffset d)
+        {
+            var syntax = DateTimeSyntax.FourDigitYear | DateTimeSyntax.WithSeconds | DateTimeSyntax.NumericTimeZone;
+            var output = new Rfc822.DateTime(d).ToString(syntax);
+
+            Assert.Equal(d, new Rfc822.DateTime(output, syntax).Instant);
+        }
     }
 }

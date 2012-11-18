@@ -6,6 +6,7 @@ namespace Rfc822Tests
 {
     public partial class DateTimeTests
     {
+        // Date time strings with all different day names in mixed case
         public static IEnumerable<object[]> DayNames
         {
             get
@@ -21,6 +22,7 @@ namespace Rfc822Tests
             }
         }
 
+        // Date time strings with all different month names in mixed case
         public static IEnumerable<object[]> MonthNames
         {
             get
@@ -36,6 +38,7 @@ namespace Rfc822Tests
             }
         }
 
+        // Date time strings with all different abbreviated time zones
         public static IEnumerable<object[]> TimeZones
         {
             get
@@ -51,6 +54,7 @@ namespace Rfc822Tests
             }
         }
 
+        // Date time strings with all different military time zones
         public static IEnumerable<object[]> MilitaryTimeZones
         {
             get
@@ -66,6 +70,7 @@ namespace Rfc822Tests
             }
         }
 
+        // Date time strings with several numeric time zones
         public static IEnumerable<object[]> NumericTimeZones
         {
             get
@@ -81,6 +86,7 @@ namespace Rfc822Tests
             }
         }
 
+        // Date time string with several numeric time zones that include minutes in the offset
         public static IEnumerable<object[]> NumericTimeZonesWithMinutes
         {
             get
@@ -96,28 +102,42 @@ namespace Rfc822Tests
             }
         }
 
+        // Date time strings with all different syntax combinations, except numeric time zone
         public static IEnumerable<object[]> SyntaxCombinations
         {
             get
             {
-                var d = new DateTimeOffset(2012, 5, 1, 12, 34, 0, new TimeSpan(0, 0, 0));
+                for (int syntax = 0; syntax < (int)DateTimeSyntax.NumericTimeZone; syntax++)
+                {
+                    var d = new DateTimeOffset(2012, 5, 1, 12, 34, 0, new TimeSpan(0, 0, 0));
 
-                yield return new object[] { "1 May 12 12:34 UT", 0, d };
-                yield return new object[] { "01 May 12 12:34 UT", 1, d };
-                yield return new object[] { "1 May 2012 12:34 UT", 2, d };
-                yield return new object[] { "01 May 2012 12:34 UT", 3, d };
-                yield return new object[] { "1 May 12 12:34:54 UT", 4, d.AddSeconds(54) };
-                yield return new object[] { "01 May 12 12:34:54 UT", 5, d.AddSeconds(54) };
-                yield return new object[] { "1 May 2012 12:34:54 UT", 6, d.AddSeconds(54) };
-                yield return new object[] { "01 May 2012 12:34:54 UT", 7, d.AddSeconds(54) };
-                yield return new object[] { "Tue, 1 May 12 12:34 UT", 8, d };
-                yield return new object[] { "Tue, 01 May 12 12:34 UT", 9, d };
-                yield return new object[] { "Tue, 1 May 2012 12:34 UT", 10, d };
-                yield return new object[] { "Tue, 01 May 2012 12:34 UT", 11, d };
-                yield return new object[] { "Tue, 1 May 12 12:34:54 UT", 12, d.AddSeconds(54) };
-                yield return new object[] { "Tue, 01 May 12 12:34:54 UT", 13, d.AddSeconds(54) };
-                yield return new object[] { "Tue, 1 May 2012 12:34:54 UT", 14, d.AddSeconds(54) };
-                yield return new object[] { "Tue, 01 May 2012 12:34:54 UT", 15, d.AddSeconds(54) };
+                    yield return new object[] { new Rfc822.DateTime(d).ToString((DateTimeSyntax)syntax), syntax, d };
+                }
+            }
+        }
+
+        // 100 random dates between 2000 and 2100
+        public static IEnumerable<object[]> RandomDates
+        {
+            get
+            {
+                System.DateTime start = new System.DateTime(2000, 1, 1);
+                System.DateTime end = start.AddYears(100);
+                
+                Random generator = new Random();
+
+                for (int i = 0; i < 100; i++)
+                {
+                    var d = new DateTimeOffset(
+                        start
+                            .AddDays(generator.Next((end - start).Days))
+                            .AddHours(generator.Next(0, 24))
+                            .AddMinutes(generator.Next(0, 60))
+                            .AddSeconds(generator.Next(0, 60)),
+                        new TimeSpan(generator.Next(-13, 14), generator.Next(-59, 60), 0));
+
+                    yield return new object[] { d };
+                }
             }
         }
     }
