@@ -1,6 +1,7 @@
 ﻿using Rfc822;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using Xunit;
 using Xunit.Extensions;
 
@@ -59,6 +60,23 @@ namespace Rfc822Tests
             var output = new Rfc822.DateTime(d).ToString(DateTimeSyntax.None);
 
             Assert.Equal("1 May 12 10:34 UT", output);
+        }
+
+        [Fact]
+        public void Local_time_is_preserved_with_time_zone_offset()
+        {
+            var now = System.DateTime.Now;
+            var offset = TimeZoneInfo.Local.BaseUtcOffset;
+
+            string expected = String.Format("{0} {1}{2}",
+                now.ToString("d MMM yy HH:mm", CultureInfo.InvariantCulture),
+                offset.Ticks >= 0 ? "+" : "-", 
+                offset.ToString("hhmm"));
+
+            var d = new DateTimeOffset(now);
+            var output = new Rfc822.DateTime(d).ToString(DateTimeSyntax.None | DateTimeSyntax.NumericTimeZone);
+
+            Assert.Equal(expected, output);
         }
 
         [Theory]
