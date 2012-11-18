@@ -44,7 +44,7 @@ namespace Rfc822Tests
         }
 
         [Fact]
-        public void Default_format()
+        public void Default_format_is_four_digit_year_with_seconds_and_numeric_time_zone()
         {
             var d = new DateTimeOffset(2012, 5, 1, 12, 34, 56, new TimeSpan(2, 0, 0));
             var expected = "1 May 2012 12:34:56 +0200";
