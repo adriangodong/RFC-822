@@ -1,16 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Rfc822</id>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
         <title>RFC 822</title>
         <authors>Michiel van Oosterhout</authors>
         <owners />
         <licenseUrl>http://rfc822.codeplex.com/license</licenseUrl>
         <projectUrl>http://rfc822.codeplex.com</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>Parse or write a date and time formatted according to the RFC 822 specification.</description>
-        <summary>Use this package if you need to parse or format RFC 822 formatted dates, like those found in RSS feeds. An RFC 822 formatted date time may look something like this: "Sun, 18 Nov 2012 20:32 +0100"</summary>
+        <description>Use this package if you need to parse or format RFC 822 formatted dates, like those found in RSS feeds. An RFC 822 formatted date time may look something like this: "Sun, 18 Nov 2012 20:32 +0100"</description>
+        <summary>Parse or write a date and time formatted according to the RFC 822 specification.</summary>
+        <releaseNotes>Updated summary and description.</releaseNotes>
         <tags>RFC, RFC 822, RSS</tags>
     </metadata>
     <files>
