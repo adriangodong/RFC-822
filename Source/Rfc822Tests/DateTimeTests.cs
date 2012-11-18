@@ -35,12 +35,12 @@ namespace Rfc822Tests
         }
 
         [Fact]
-        public void Parse_supports_negative_UTC_offset()
+        public void Parse_supports_negative_and_positive_UTC_offset()
         {
             var d = new DateTimeOffset(2012, 5, 1, 12, 34, 00, new TimeSpan(0, 0, 0));
-            var input = "1 May 12 12:34 -0000";
 
-            Assert.Equal(d, new Rfc822.DateTime(input, DateTimeSyntax.None).Instant);
+            Assert.Equal(d, new Rfc822.DateTime("1 May 12 12:34 -0000", DateTimeSyntax.None).Instant);
+            Assert.Equal(d, new Rfc822.DateTime("1 May 12 12:34 +0000", DateTimeSyntax.None).Instant);
         }
 
         [Fact]
