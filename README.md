@@ -30,7 +30,6 @@ DateTimeOffset d = new Rfc822.DateTime(input, syntax).Instant;
 var dateTime = new DateTimeOffset(DateTime.Now);
 var rfcDateTime = new Rfc822.DateTime(d);
 ```
-
 Using default syntax:
 ```c#
 Console.WriteLine(rfcDateTime.ToString());
@@ -41,14 +40,12 @@ var syntax = Rfc822.DateTimeSyntax.FourDigitYear | Rfc822.DateTimeSyntax.Numeric
 Console.WriteLine(rfcDateTime.ToString(syntax));
 // Result: 4 Nov 2012 21:16 -0800
 ```
-
 Using Universal Time:
 ```
 var syntax = Rfc822.DateTimeSyntax.FourDigitYear;
 Console.WriteLine(rfcDateTime.ToString(syntax));
 // Result: 5 Nov 2012 05:16 UT
 ```
-
 As you can see from the last example, if you need to preserve the local date time information, you should format using Rfc822.DateTimeSyntax.NumericTimeZone, otherwise the date time will be translated to Universal Time and the time zone in the output will always be "UT".
 
 #### Further reading
