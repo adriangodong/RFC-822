@@ -34,8 +34,9 @@ Using default syntax:
 ```c#
 Console.WriteLine(rfcDateTime.ToString());
 // Result: 4 Nov 2012 21:16:00 -0800
+```
 Setting syntax options manually:
-
+```c#
 var syntax = Rfc822.DateTimeSyntax.FourDigitYear | Rfc822.DateTimeSyntax.NumericTimeZone;
 Console.WriteLine(rfcDateTime.ToString(syntax));
 // Result: 4 Nov 2012 21:16 -0800
