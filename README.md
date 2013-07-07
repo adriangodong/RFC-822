@@ -41,7 +41,7 @@ Console.WriteLine(rfcDateTime.ToString(syntax));
 // Result: 4 Nov 2012 21:16 -0800
 ```
 Using Universal Time:
-```
+```c#
 var syntax = Rfc822.DateTimeSyntax.FourDigitYear;
 Console.WriteLine(rfcDateTime.ToString(syntax));
 // Result: 5 Nov 2012 05:16 UT
