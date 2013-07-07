@@ -11,7 +11,7 @@ Combinations are also supported, so a "4 Nov 2012 21:16:38 PST" which uses four 
 
 _The code is tested with over 200 unit tests of various date time formats and time zones._
 
-### Parsing an RFC 822 date time string
+#### Parsing an RFC 822 date time string
 
 ```c#
 var input = "4 Nov 2012 21:16:38 PST";
@@ -23,7 +23,7 @@ var syntax = Rfc822.DateTimeSyntax.WithSeconds | Rfc822.DateTimeSyntax.FourDigit
 DateTimeOffset d = new Rfc822.DateTime(input, syntax).Instant;
 ```
 
-### Formatting a System.DateTimeOffset as an RFC 822 date time string
+#### Formatting a System.DateTimeOffset as an RFC 822 date time string
 
 ```c#
 // Local system time zone is PST (-0800)
@@ -51,6 +51,6 @@ Console.WriteLine(rfcDateTime.ToString(syntax));
 
 As you can see from the last example, if you need to preserve the local date time information, you should format using Rfc822.DateTimeSyntax.NumericTimeZone, otherwise the date time will be translated to Universal Time and the time zone in the output will always be "UT".
 
-### Further reading
+#### Further reading
 
 See RFC 822 specification [here](http://www.w3.org/Protocols/rfc822/#z28).
