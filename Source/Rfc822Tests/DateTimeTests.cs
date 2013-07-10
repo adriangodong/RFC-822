@@ -65,16 +65,14 @@ namespace Rfc822Tests
         [Fact]
         public void Local_time_is_preserved_with_time_zone_offset()
         {
-            var now = System.DateTime.Now;
-            var offset = TimeZoneInfo.Local.BaseUtcOffset;
+            var now = new DateTimeOffset(System.DateTime.Now);
 
             string expected = String.Format("{0} {1}{2}",
                 now.ToString("d MMM yy HH:mm", CultureInfo.InvariantCulture),
-                offset.Ticks >= 0 ? "+" : "-", 
-                offset.ToString("hhmm"));
+                now.Offset.Ticks >= 0 ? "+" : "-", 
+                now.Offset.ToString("hhmm"));
 
-            var d = new DateTimeOffset(now);
-            var output = new Rfc822.DateTime(d).ToString(DateTimeSyntax.None | DateTimeSyntax.NumericTimeZone);
+            var output = new Rfc822.DateTime(now).ToString(DateTimeSyntax.None | DateTimeSyntax.NumericTimeZone);
 
             Assert.Equal(expected, output);
         }
