@@ -5,7 +5,7 @@ using System.Globalization;
 using Xunit;
 using Xunit.Extensions;
 
-namespace Rfc822Tests
+namespace Rfc822.Tests
 {
     public partial class DateTimeTests
     {

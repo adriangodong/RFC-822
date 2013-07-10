@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Rfc822Tests
+namespace Rfc822.Tests
 {
     public partial class DateTimeTests
     {

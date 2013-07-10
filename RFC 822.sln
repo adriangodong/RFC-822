@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2012 for Web
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rfc822", "Source\Rfc822\Rfc822.csproj", "{19029C10-C847-4C16-96F7-36FC1D7F17E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rfc822Tests", "Source\Rfc822Tests\Rfc822Tests.csproj", "{8946390F-B784-400A-9FEC-C2F2D931F551}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rfc822.Tests", "Source\Rfc822.Tests\Rfc822.Tests.csproj", "{8946390F-B784-400A-9FEC-C2F2D931F551}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

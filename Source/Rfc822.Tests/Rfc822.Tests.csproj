@@ -7,8 +7,8 @@
     <ProjectGuid>{8946390F-B784-400A-9FEC-C2F2D931F551}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Rfc822Tests</RootNamespace>
-    <AssemblyName>Rfc822Tests</AssemblyName>
+    <RootNamespace>Rfc822.Tests</RootNamespace>
+    <AssemblyName>Rfc822.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
