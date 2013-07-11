@@ -1,6 +1,7 @@
 *.docstates
 *.suo
 *.user
+Publish/
 Packages/
 [Bb]in/
 [Oo]bj/

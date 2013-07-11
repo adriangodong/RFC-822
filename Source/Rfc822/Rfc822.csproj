@@ -45,12 +45,19 @@
   <ItemGroup>
     <Reference Include="System" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Rfc822.nuspec" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
-  <Target Name="AfterBuild">
-  </Target>
   -->
+    <Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Release' ">
+        <MakeDir Directories="$(SolutionDir)Publish" />
+        <Exec
+            WorkingDirectory="$(SolutionDir)Publish"
+            Command="&quot;$(SolutionDir).nuget\NuGet.exe&quot; Pack &quot;$(ProjectDir)$(ProjectFileName)&quot; -Prop Configuration=&quot;$(Configuration)&quot;" Outputs="nupkg" />
+    </Target>
 </Project>
