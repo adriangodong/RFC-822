@@ -32,13 +32,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <!-- Start xUnit runner with project loaded -->
-    <Package>$([System.IO.Directory]::GetDirectories("$(MSBuildProjectDirectory)\\..\\..\\Packages\\", "xunit.runners.*").GetValue(0))</Package>
-    <StartAction>Program</StartAction>
-    <StartProgram>$(Package)\tools\xunit.gui.clr4.exe</StartProgram>
-    <StartArguments>"$(MSBuildProjectDirectory)\$(OutPutPath)$(AssemblyName).dll"</StartArguments>
-  </PropertyGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
   </ItemGroup>

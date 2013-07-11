@@ -56,8 +56,6 @@
   -->
     <Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Release' ">
         <MakeDir Directories="$(SolutionDir)Publish" />
-        <Exec
-            WorkingDirectory="$(SolutionDir)Publish"
-            Command="&quot;$(SolutionDir).nuget\NuGet.exe&quot; Pack &quot;$(ProjectDir)$(ProjectFileName)&quot; -Prop Configuration=&quot;$(Configuration)&quot;" Outputs="nupkg" />
+        <Exec Command="&quot;$(SolutionDir).nuget\NuGet.exe&quot; Pack &quot;$(ProjectDir)$(ProjectFileName)&quot; -Prop Configuration=&quot;$(Configuration)&quot; -OutputDirectory &quot;$(SolutionDir)Publish&quot; -Symbols -Verbosity normal" />
     </Target>
 </Project>
