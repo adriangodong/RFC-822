@@ -16,7 +16,7 @@ Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-		Description = Parse or write a date and time formatted according to the RFC 822 specification.
+		Description = Parse or write a date and time formatted according to the RFC 822 specification
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{19029C10-C847-4C16-96F7-36FC1D7F17E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
