@@ -11,7 +11,7 @@ If you need to parse an RFC 822 formated date time string, in an RSS feed for in
 - Military time zones, e.g. "4 Nov 12 21:16 H"
 - Numeric time zone format, e.g. "4 Nov 12 21:16 -0800"
 
-Combinations are also supported, so a "4 Nov 2012 21:16:38 PST" which uses four digits for the year and seconds in the time, can be parsed as well. See the first example below to see how to go about parsing such a date time string.
+Combinations are also supported, so "4 Nov 2012 21:16:38 PST" which uses four digits for the year and seconds in the time, can be parsed as well. See the first example below to see how to go about parsing such a date time string.
 
 _The code is tested with over 200 unit tests of various date time formats and time zones._
 
