@@ -1,6 +1,8 @@
-Download package: http://nuget.org/packages/rfc822
+[Download NuGet package](http://nuget.org/packages/rfc822) or install with `Install-Package Rfc822`.
 
-If you need to parse an RFC 822 formated date time string, in an RSS feed for instance, you can use the Rfc822.DateTime wrapper to parse the string and get a System.DateTimeOffset back that even preserved time zone information. It supports all possible syntax variations:
+This project is stable and done, no further updates are planned.
+
+If you need to parse an RFC 822 formated date time string, in an RSS feed for instance, you can use the Rfc822.DateTime wrapper to parse the string and get a System.DateTimeOffset back that has preserved the time zone information. It supports all possible syntax variations described in the RFC:
 
 - Day names, e.g. "Sun, 4 Nov 12 21:16 PST"
 - Two digit day, e.g. "04 Nov 12 21:16 PST"
