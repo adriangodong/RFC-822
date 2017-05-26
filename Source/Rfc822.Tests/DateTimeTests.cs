@@ -1,22 +1,19 @@
-﻿using Rfc822;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Globalization;
 using Xunit;
-using Xunit.Extensions;
 
 namespace Rfc822.Tests
 {
     public partial class DateTimeTests
     {
         [Theory]
-        [PropertyData("DayNames")]
-        [PropertyData("MonthNames")]
-        [PropertyData("TimeZones")]
-        [PropertyData("MilitaryTimeZones")]
-        [PropertyData("NumericTimeZones")]
-        [PropertyData("NumericTimeZonesWithMinutes")]
-        [PropertyData("SyntaxCombinations")]
+        [MemberData("DayNames")]
+        [MemberData("MonthNames")]
+        [MemberData("TimeZones")]
+        [MemberData("MilitaryTimeZones")]
+        [MemberData("NumericTimeZones")]
+        [MemberData("NumericTimeZonesWithMinutes")]
+        [MemberData("SyntaxCombinations")]
         public void Can_parse_RFC_822_formatted_dates(string input, DateTimeSyntax syntax, DateTimeOffset expected)
         {
             var d = new Rfc822.DateTime(input, syntax);
@@ -25,9 +22,9 @@ namespace Rfc822.Tests
         }
 
         [Theory]
-        [PropertyData("SyntaxCombinations")]
-        [PropertyData("NumericTimeZones")]
-        [PropertyData("NumericTimeZonesWithMinutes")]
+        [MemberData("SyntaxCombinations")]
+        [MemberData("NumericTimeZones")]
+        [MemberData("NumericTimeZonesWithMinutes")]
         public void Can_write_RFC_822_formatted_dates(string expected, DateTimeSyntax syntax, DateTimeOffset d)
         {
             var output = new Rfc822.DateTime(d).ToString(syntax);
@@ -78,7 +75,7 @@ namespace Rfc822.Tests
         }
 
         [Theory]
-        [PropertyData("RandomDates")]
+        [MemberData("RandomDates")]
         public void Can_round_trip(DateTimeOffset d)
         {
             var syntax = DateTimeSyntax.FourDigitYear | DateTimeSyntax.WithSeconds | DateTimeSyntax.NumericTimeZone;
